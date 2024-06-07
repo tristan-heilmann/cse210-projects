@@ -1,0 +1,33 @@
+What is version control and why is it important?
+
+- Explain the meaning of Version Control
+    Version Control is a system called "Version Control System" - or VCS for
+short - that monitors and tracks the history of changes that people/teams make in a collaborative
+project. Those who make these changes are called developers, as they develop the project, which
+can also be called a program.
+
+- Highlight a benefit of Version Control
+    Each change creates a new "version" of the project that the developers can recover and return
+to at any time if they so choose. In doing so they can see which changes were made, who made
+them, when they were made, and why they were needed. This unified, consistent view of the project
+and transparent change history allows the developers to stay aligned with each other despite
+working independently.
+
+- Provide an application of Version Control. This means, provide an example of how Version
+Control could be used
+    Say you have three different developers, with one living in the US, one living in England,
+and one living in Russia. The project is online so all three can access it, but due to the
+varying time zones it's often difficult for all three to be working on the project at the same,
+which makes real-time communication difficult. To get around this issue one incoperates a VCS
+into the project, allowing them to see what the other two have been up to. This proves to be so
+effective that they share it with the others, and now that they can see exactly what each other
+have done progress is now smoother than ever.
+
+- Show a command used in Version Control (for example a Git command)
+    git commit -m
+    This Version Control command - specifically for Git - takes any new changes made to the
+program in the Github directory and commits them, making the program recieve the changes
+globally.
+
+- Thoroughly explain these concepts (this likely cannot be done in less than 100 words)
+    Altogether there are over three hundred words in this file.
