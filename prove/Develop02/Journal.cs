@@ -16,7 +16,7 @@ public class Journal
 
         entry._date = dateText;
 
-        entry._promptText = prompt;
+        entry._promptText = "prompt";
         Console.WriteLine($"Your prompt is {prompt}");
 
         Console.Write("Type in your entry: ");
@@ -24,7 +24,21 @@ public class Journal
 
         myJournal._entries.Add(entry);
 
-        myJournal.SaveToFile();
+        myJournal.SaveEntry();
+    }
+
+    public void SaveEntry()
+
+    {
+        Console.WriteLine("Saving to file...");
+
+        {
+            foreach (Entry entry in _entries)
+
+            {
+                entry.DisplayEntryDetails();
+            }
+        }
     }
 
     public void DisplayAll()
@@ -42,14 +56,6 @@ public class Journal
 public void SaveToFile()
 
     {
-        Console.WriteLine("Saving to file...");
-
-        {
-            foreach (Entry entry in _entries)
-
-            {
-                entry.DisplayEntryDetails();
-            }
-        }
+        
     }
 }
