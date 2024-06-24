@@ -1,0 +1,6 @@
+Abstraction sounds complicated on paper - or at least it did to me - but in practice it's extremely simple. Abstraction is the process of taking a function and removing the
+redundancies and non-essential lines of code, "trimming the fat" so to speak and effectively simplifying the function. One of the benefits of abstraction is that smaller functions
+are easier to use and don't need as much maintnence when something else in the code changes. A good example of this is one I actually used myself: I was making a list for the
+prompt generator and originally I had this massive chunk of code that creates the five different prompts and then manually puts them in the list, but then after a bit of
+experimenting I discovered that instead I can simply put them into the list directly using curly braces, rendering over a dozen lines of code unnecessary and consideribly trimming
+down the file size.
