@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 public class Journal
 
 {
@@ -14,6 +16,8 @@ public class Journal
         PromptGenerator prompt = new PromptGenerator();
         Journal myJournal = new Journal();
 
+        
+
         entry._date = dateText;
         entry._promptText = prompt.GetRandomPrompt();
 
@@ -22,25 +26,9 @@ public class Journal
         Console.Write("Type in your entry: ");
         entry._entryText = Console.ReadLine();
 
-        myJournal._entries.Add(entry);
+        _entries.Add(entry);
 
-        myJournal.SaveEntry();
-    }
-
-    public void SaveEntry()
-    
-    {
-        string filename = "Journal.txt";
- 
-        using (StreamWriter outputFile = new StreamWriter(filename))
-
-        {
-            foreach (Entry entry in _entries)
-
-            {
-                outputFile.WriteLine($"Today's date: {entry._date}. Today's prompt: {entry._promptText}. Today's entry: {entry._entryText}");
-            }
-        }  
+        
     }
 
     public void DisplayAll()
@@ -49,15 +37,35 @@ public class Journal
         
     }
 
-    public void LoadFromFile()
+    public void LoadFromFile(string file)
 
     {
+        string filename = file;
 
+        string[] lines = System.IO.File.ReadAllLines(filename);
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(",");
+        
+            string firstName = parts[0];
+            string lastName = parts[1];
+        }
     }
 
-public void SaveToFile()
+public void SaveToFile(string file)
 
     {
-        Console.WriteLine("In truth this option is a redundancy only kept because I am required to do so. The entry is saved to the text file automatically.");
+        string filename = file;
+ 
+        using (StreamWriter outputFile = new StreamWriter(filename))
+
+        {
+            foreach (Entry entry in _entries)
+
+            {
+                outputFile.WriteLine($"Today's date: {entry._date}. Today's prompt: {entry._promptText} Today's entry: {entry._entryText}");
+            }
+        }  
     }
 }
