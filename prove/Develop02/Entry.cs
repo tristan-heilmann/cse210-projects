@@ -12,6 +12,6 @@ public class Entry
 
         using (StreamWriter outputFile = new StreamWriter(filename))
 
-        outputFile.WriteLine($"Today's date: {_date}. Today's prompt: {_promptText}. Today's entry: {_entryText}");
+        outputFile.WriteLine($"Today's date: {_date}. Today's prompt: {_promptText} Today's entry: {_entryText}");
     }
 }

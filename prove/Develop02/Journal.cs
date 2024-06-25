@@ -15,9 +15,9 @@ public class Journal
         Journal myJournal = new Journal();
 
         entry._date = dateText;
+        entry._promptText = prompt.GetRandomPrompt();
 
-        entry._promptText = "prompt";
-        Console.WriteLine($"Your prompt is {prompt}");
+        Console.WriteLine($"Your prompt is {entry._promptText}");
 
         Console.Write("Type in your entry: ");
         entry._entryText = Console.ReadLine();
@@ -28,17 +28,19 @@ public class Journal
     }
 
     public void SaveEntry()
-
+    
     {
-        Console.WriteLine("Saving to file...");
+        string filename = "Journal.txt";
+ 
+        using (StreamWriter outputFile = new StreamWriter(filename))
 
         {
             foreach (Entry entry in _entries)
 
             {
-                entry.DisplayEntryDetails();
+                outputFile.WriteLine($"Today's date: {entry._date}. Today's prompt: {entry._promptText}. Today's entry: {entry._entryText}");
             }
-        }
+        }  
     }
 
     public void DisplayAll()
@@ -56,6 +58,6 @@ public class Journal
 public void SaveToFile()
 
     {
-        
+        Console.WriteLine("In truth this option is a redundancy only kept because I am required to do so. The entry is saved to the text file automatically.");
     }
 }

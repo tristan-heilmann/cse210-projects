@@ -23,25 +23,25 @@ class Program
 
         Journal myJournal = new Journal();
 
-        if (input == "Write")
+        if (input == "1")
 
         {
             myJournal.AddEntry();
         }
 
-        else if (input == "Display")
+        else if (input == "2")
 
         {
             myJournal.DisplayAll();
         }
 
-        else if (input == "Load")
+        else if (input == "3")
 
         {
             myJournal.LoadFromFile();
         }
 
-        else if (input == "Save")
+        else if (input == "4")
 
         {
             myJournal.SaveToFile();
