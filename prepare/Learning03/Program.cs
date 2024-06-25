@@ -6,11 +6,20 @@ class Program
     {
         Console.WriteLine("Hello Learning03 World!");
 
-        Fraction numerator = new Fraction();
-        Fraction denominator = new Fraction();
+        Fraction first = new Fraction();
+        Console.WriteLine(first.GetFractionString());
+        Console.WriteLine(first.GetDecimalValue());
 
-        
+        Fraction second = new Fraction(5);
+        Console.WriteLine(second.GetFractionString());
+        Console.WriteLine(second.GetDecimalValue());
 
-        Console.WriteLine($"{numerator}/{denominator}");
+        Fraction third = new Fraction(3, 4);
+        Console.WriteLine(third.GetFractionString());
+        Console.WriteLine(third.GetDecimalValue());
+
+        Fraction fourth = new Fraction(1, 3);
+        Console.WriteLine(fourth.GetFractionString());
+        Console.WriteLine(fourth.GetDecimalValue());
     }
 }
