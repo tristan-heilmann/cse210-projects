@@ -8,6 +8,6 @@ public class Entry
     public void DisplayEntryDetails()
 
     {
-        
+        Console.WriteLine($"Date: {_date} - Prompt: {_promptText} - Entry: {_entryText}");
     }
 }

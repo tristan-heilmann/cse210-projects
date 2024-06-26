@@ -5,36 +5,21 @@ public class Journal
 {
     public List<Entry> _entries = new List<Entry>();
 
-    DateTime theCurrentTime = DateTime.Now;
-
-    public void AddEntry()
+    public void AddEntry(Entry newEntry)
 
     {
-        string dateText = theCurrentTime.ToShortDateString();
-        
-        Entry entry = new Entry();
-        PromptGenerator prompt = new PromptGenerator();
-        Journal myJournal = new Journal();
-
-        
-
-        entry._date = dateText;
-        entry._promptText = prompt.GetRandomPrompt();
-
-        Console.WriteLine($"Your prompt is {entry._promptText}");
-
-        Console.Write("Type in your entry: ");
-        entry._entryText = Console.ReadLine();
-
-        _entries.Add(entry);
-
-        
+        _entries.Add(newEntry);
     }
 
     public void DisplayAll()
 
     {
-        
+        foreach (Entry entry in _entries)
+
+        {
+            entry.DisplayEntryDetails();
+            
+        }
     }
 
     public void LoadFromFile(string file)
@@ -46,14 +31,17 @@ public class Journal
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split(",");
+            string[] parts = line.Split("-");
         
-            string firstName = parts[0];
-            string lastName = parts[1];
+            string _date = parts[0];
+            string _promptText = parts[1];
+            string _entryText = parts[2];
+
+            Console.WriteLine(line);
         }
     }
 
-public void SaveToFile(string file)
+    public void SaveToFile(string file)
 
     {
         string filename = file;
@@ -64,7 +52,7 @@ public void SaveToFile(string file)
             foreach (Entry entry in _entries)
 
             {
-                outputFile.WriteLine($"Today's date: {entry._date}. Today's prompt: {entry._promptText} Today's entry: {entry._entryText}");
+                outputFile.WriteLine($"Date: {entry._date} - Prompt: {entry._promptText} - Entry: {entry._entryText}");
             }
         }  
     }

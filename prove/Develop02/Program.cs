@@ -10,6 +10,8 @@ class Program
     {
         string input = "0";
 
+        Journal myJournal = new Journal();
+
         do
 
         {
@@ -26,14 +28,27 @@ class Program
             Console.Write("Which would you like to do? ");
             input = Console.ReadLine();
 
-            Journal myJournal = new Journal();
+            DateTime theCurrentTime = DateTime.Now;
 
             string file = "";
 
             if (input == "1")
 
             {
-                myJournal.AddEntry();
+                string dateText = theCurrentTime.ToShortDateString();
+
+                Entry newEntry = new Entry();
+                PromptGenerator prompt = new PromptGenerator();
+
+                newEntry._date = dateText;
+                newEntry._promptText = prompt.GetRandomPrompt();
+
+                Console.WriteLine($"Your prompt is {newEntry._promptText}");
+
+                Console.Write("Type in your entry: ");
+                newEntry._entryText = Console.ReadLine();
+
+                myJournal.AddEntry(newEntry);
             }
 
             else if (input == "2")
