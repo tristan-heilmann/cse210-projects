@@ -1,0 +1,5 @@
+The definition of encapsulation is "the action of enclosing something in or as if in a capsule. (Urban Dictionary)" In coding terms, encapsulation means to conceal the inner
+workings of the classes, hiding how they work from the user, which also prevents not only them, but even some of the code itself from manipulating these classes. Now one of the
+main benefits of doing this is it makes it much easier to find and weed out bugs as it controls what can and can't access the data. Let's say that you have a variable that only
+one function needs access too. Encapsulation will make it so that the function that needs the variable is the only one that can even access it in the first place, which makes it
+so that if there's a bug concerning that variable, there's only one or two places you need to look.
