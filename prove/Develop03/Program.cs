@@ -1,17 +1,36 @@
 using System;
+using System.Runtime.CompilerServices;
 
 class Program
+
 {
     static void Main(string[] args)
+
     {
-        Console.WriteLine("Hello Develop03 World!");
+        string userInput = "";
+
+        Scripture _isCompletelyHidden = new Scripture();
+        Scripture completeScripture = new Scripture();
+
+        Console.WriteLine(completeScripture);
         Console.WriteLine();
 
         Console.WriteLine("Press enter or type 'Quit' to finish.");
-        Console.ReadLine();
+        userInput = Console.ReadLine();
 
-        Console.Clear();
+        while (userInput != "Quit")
 
-        Console.WriteLine("Boo");
+        {
+            Console.Clear();
+
+            Console.WriteLine(completeScripture);
+            userInput = Console.ReadLine();
+        }
+
+        if (_isCompletelyHidden = true)
+
+        {
+            userInput = "Quit";
+        }
     }
 }
