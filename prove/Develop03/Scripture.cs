@@ -30,13 +30,13 @@ public class Scripture
     {
         numberToHide = 3;
 
-
+        
     }
 
     public string GetDisplayText()
 
     {
-        string rejoinedScripture = _text.Join(" ");
+        string rejoinedScripture = _words.Join(" ");
 
         completeScripture = $"{_reference} {rejoinedScripture}";
         return completeScripture;
@@ -45,7 +45,10 @@ public class Scripture
     public bool IsCompletelyHidden()
 
     {
+        _isCompletelyHidden = false;
+
         
+
         return _isCompletelyHidden;
     }
 }

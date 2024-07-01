@@ -23,7 +23,7 @@ class Program
         {
             Console.Clear();
 
-            Console.WriteLine(completeScripture);
+            Console.WriteLine(completeScripture.GetDisplayText());
             userInput = Console.ReadLine();
         }
 
