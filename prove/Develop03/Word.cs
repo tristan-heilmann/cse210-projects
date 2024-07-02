@@ -18,6 +18,7 @@ public class Word
 
     {
         _isHidden = true;
+        _text = "_____";
     }
 
     public bool IsHidden()

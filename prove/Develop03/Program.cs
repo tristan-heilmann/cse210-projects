@@ -10,9 +10,10 @@ class Program
         string userInput = "";
 
         Scripture _isCompletelyHidden = new Scripture();
-        Scripture completeScripture = new Scripture();
+        Scripture displayText = new Scripture();
+        displayText.WriteLineSplitter();
 
-        Console.WriteLine(completeScripture);
+        Console.WriteLine(displayText.GetDisplayText());
         Console.WriteLine();
 
         Console.WriteLine("Press enter or type 'Quit' to finish.");
@@ -23,14 +24,16 @@ class Program
         {
             Console.Clear();
 
-            Console.WriteLine(completeScripture.GetDisplayText());
+            displayText.HideRandomWords(3);
+
+            Console.WriteLine(displayText.GetDisplayText());
             userInput = Console.ReadLine();
-        }
 
-        if (_isCompletelyHidden = true)
+            if (displayText.IsCompletelyHidden())
 
-        {
-            userInput = "Quit";
+            {
+                userInput = "Quit";
+            }
         }
     }
 }

@@ -8,10 +8,7 @@ public class Scripture
     private List<Word> _words = new List<Word>();
     private string _text = "Trust in the LORD with all your heart and lean not on your own understanding; in all your ways acknowledge him, and he will make your paths straight.";
 
-    private string completeScripture;
-    private bool _isCompletelyHidden = false;
-
-    private void WriteLineSplitter()
+    public void WriteLineSplitter()
 
     {
         string [] scripture = _text.Split(" ");
@@ -28,26 +25,47 @@ public class Scripture
     public void HideRandomWords(int numberToHide)
 
     {
-        numberToHide = 3;
+        for (int i = 0; i < numberToHide; i++)
 
-        
+        {
+            Random random = new Random();
+
+            int index = random.Next(_words.Count);
+
+            Word randomWord = _words[index];
+
+            randomWord.Hide();
+        }
     }
 
     public string GetDisplayText()
 
     {
-        string rejoinedScripture = _words.Join(" ");
+        string displayText = _reference.GetReference() + "\n";
 
-        completeScripture = $"{_reference} {rejoinedScripture}";
-        return completeScripture;
+        foreach (Word newWord in _words)
+
+        {
+            displayText += newWord.GetText() + " ";
+        }
+
+        return displayText;
     }
 
     public bool IsCompletelyHidden()
 
     {
-        _isCompletelyHidden = false;
+        bool _isCompletelyHidden = true;
 
-        
+        foreach (Word word in _words)
+
+        {
+            if (!word.IsHidden())
+
+            {
+                _isCompletelyHidden = false;
+            }
+        }
 
         return _isCompletelyHidden;
     }
