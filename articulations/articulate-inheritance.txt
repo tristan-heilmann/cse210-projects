@@ -1,0 +1,6 @@
+The definition of inheritance is to inherit something, which in turn means to recieve or be left with something from a previous owner. Usually the way one inherits something is
+when the previous owner dies. Inheritance in coding is similar, but thankfully doesn't involve anything dying. The way inheritance works in programming is you have a file called a
+"parent" file, and one or more "child" files who's classes are directly connected to the parent (as an example from my own code: public class ListingActivity : Activity). The
+benefit of doing this is that child classes don't need to define the variables of their parent class, as through the inheritance they already have access to them. An application
+of this would be to use a specific variable from a parent class in an equation in a different class, without needing to define the parent function and instead simply slapping it
+in there.
