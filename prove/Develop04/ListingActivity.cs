@@ -62,11 +62,7 @@ public class ListingActivity : Activity
         Console.WriteLine();
         Console.WriteLine("Well done. Returning to main menu now...");
 
-        for (int i = 0; i < dur*2 ; i++)
-
-        {
-            ShowSpinner(dur - i/2);
-        }
+        ShowSpinner(5);
 
         Console.Clear();
     }
@@ -96,7 +92,7 @@ public class ListingActivity : Activity
         Console.WriteLine($"---{prompt}---");
         Console.WriteLine();
 
-        Console.WriteLine($"You may begin in: {ShowCountdown(5)}");
+        Console.WriteLine($"You may begin in: ShowCountdown(5)");
         Console.Write("> ");
 
         _responses = new List<string>();

@@ -34,36 +34,33 @@ public class BreathingActivity : Activity
 
         int dur = int.Parse(Console.ReadLine());
 
-        SetDuration(dur);
+        DateTime currentTime = DateTime.Now;
+        DateTime futureTime = currentTime.AddSeconds(dur);
 
-        // you are now breathing manually
-        Console.WriteLine();
-        Console.WriteLine($"Breath in...");
+        Console.WriteLine("Beginning activity...");
 
-        for (int i = 0; i < dur*2 ; i++)
+        ShowSpinner(5);
 
+        do
+ 
         {
-                ShowSpinner(dur - i/2);
-        }
+            // you are now breathing manually
+            Console.WriteLine();
+            Console.WriteLine($"Breath in...");
 
-        Console.WriteLine();
-        Console.WriteLine($"Breath out...");
+            ShowCountdown(2);
 
-        for (int i = 0; i < dur*2 ; i++)
+            Console.WriteLine();
+            Console.WriteLine($"Breath out...");
 
-        {
-            ShowSpinner(dur - i/2);
-        }
+            ShowCountdown(3);
+        } while (currentTime <= futureTime);
 
         // you are still breathing manually but at least you're not being told to do so
         Console.WriteLine();
         Console.WriteLine("Well done. Returning to main menu now...");
 
-        for (int i = 0; i < dur*2 ; i++)
-
-        {
-            ShowSpinner(dur - i/2);
-        }
+        ShowSpinner(5);
         
         Console.Clear();
     }

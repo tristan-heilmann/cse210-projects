@@ -29,26 +29,33 @@ public class Activity
         Console.WriteLine("Buh-bye!");
     }
 
-    // *repeatedly poking this function*
-    // how do you work?
+    // I KNOW HOW YOU WORK NOW
     public void ShowSpinner(int seconds)
  
     {
-        Console.Write(seconds);
-
-        for(int i = 0; i < seconds.ToString().Length; i++)
+        for(int i = seconds; i > 0; i--)
         
         {
+            Console.Write("+");
+
+            Thread.Sleep(1000);
+
             Console.Write("\b \b");
             Console.Write("-");
         }
     }
 
-    // yeah idk how this one works either
+    // YOU TOO
     public void ShowCountdown(int second)
 
     {
+        for(int i = second; i > 0; i--)
 
+        {
+            Console.WriteLine(i);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
     }
 
     // pretty self-explanitory

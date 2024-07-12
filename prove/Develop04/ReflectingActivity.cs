@@ -42,7 +42,6 @@ public class ReflectingActivity : Activity
         // activity duration
         Console.WriteLine("Please enter a duration (in seconds) for the activity.");
         Console.Write("> ");
-        Console.WriteLine();
 
         int dur = int.Parse(Console.ReadLine());
         
@@ -61,11 +60,7 @@ public class ReflectingActivity : Activity
         Console.WriteLine();
         Console.WriteLine("Well done. Returning to main menu now...");
 
-        for (int i = 0; i < dur*2 ; i++)
-
-        {
-            ShowSpinner(dur - i/2);
-        }
+        ShowSpinner(5);
 
         Console.Clear();
     }
@@ -107,10 +102,13 @@ public class ReflectingActivity : Activity
 
         Console. WriteLine($"---{prompt}---");
 
-        Console.WriteLine("Now ponder each of the following questions as the relate to this experience");
-        Console.WriteLine();
+        Console.WriteLine("When you have something in mind, press enter to continue");
+        Console.Write("> ");
 
-        Console.WriteLine($"You may begin in: {ShowCountdown(5)}");
+        Console.WriteLine("Now ponder each of the following questions as they are related to this experience");
+        Console.WriteLine($"You may begin in: ");
+        
+        ShowCountdown(5);
     }
 
     // another one
@@ -120,7 +118,10 @@ public class ReflectingActivity : Activity
         var question = GetRandomQuestion();
 
         Console.WriteLine($"> {question}");
+        ShowSpinner(10);
+
         Console.WriteLine($"> {question}");
+        ShowSpinner(10);
     }
 
     // oh boy I hope you guys like lists
