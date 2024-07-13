@@ -45,19 +45,19 @@ class Program
             Console.Write("> ");
             userInput = Console.ReadLine();
 
-            if (userInput == "Breathing")
+            if (userInput == "1")
 
             {
                 ba.RunBA();
             }
 
-            else if (userInput == "Reflecting")
+            else if (userInput == "2")
 
             {
                 ra.RunRA();
             }
 
-            else if (userInput == "Listing")
+            else if (userInput == "3")
 
             {
                 la.RunLA();
