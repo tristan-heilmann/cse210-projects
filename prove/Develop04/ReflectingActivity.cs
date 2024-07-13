@@ -45,16 +45,24 @@ public class ReflectingActivity : Activity
 
         int dur = int.Parse(Console.ReadLine());
         
+        DateTime currentTime = DateTime.Now;
+        DateTime futureTime = currentTime.AddSeconds(dur);
+        
         // beginning simulation
-        SetDuration(dur);
-
         Console.Clear();
 
         DisplayPrompt();
         Console.Clear();
 
+        do
+
+        {
+        currentTime = DateTime.Now;
+
         DisplayQuestions();
         Console.WriteLine();
+
+        } while (currentTime <= futureTime);
 
         // simulation complete
         Console.WriteLine();
@@ -104,6 +112,7 @@ public class ReflectingActivity : Activity
 
         Console.WriteLine("When you have something in mind, press enter to continue");
         Console.Write("> ");
+        Console.ReadKey();
 
         Console.WriteLine("Now ponder each of the following questions as they are related to this experience");
         Console.WriteLine($"You may begin in: ");
@@ -118,10 +127,7 @@ public class ReflectingActivity : Activity
         var question = GetRandomQuestion();
 
         Console.WriteLine($"> {question}");
-        ShowSpinner(10);
-
-        Console.WriteLine($"> {question}");
-        ShowSpinner(10);
+        ShowSpinner(5);
     }
 
     // oh boy I hope you guys like lists
