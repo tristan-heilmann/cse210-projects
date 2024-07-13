@@ -44,6 +44,8 @@ public class BreathingActivity : Activity
         do
  
         {
+            currentTime = DateTime.Now;
+
             // you are now breathing manually
             Console.WriteLine();
             Console.WriteLine($"Breath in...");
@@ -54,6 +56,7 @@ public class BreathingActivity : Activity
             Console.WriteLine($"Breath out...");
 
             ShowCountdown(3);
+            
         } while (currentTime <= futureTime);
 
         // you are still breathing manually but at least you're not being told to do so
