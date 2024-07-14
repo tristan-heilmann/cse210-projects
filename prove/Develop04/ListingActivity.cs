@@ -49,11 +49,12 @@ public class ListingActivity : Activity
         // setting a duration
         Console.WriteLine("Please enter a duration (in seconds) for the activity.");
         Console.Write("> ");
-        Console.WriteLine();
+        Console.ReadKey();
 
         int dur = int.Parse(Console.ReadLine());
         
-        SetDuration(dur);
+        DateTime currentTime = DateTime.Now;
+        DateTime futureTime = currentTime.AddSeconds(dur);
 
         // beginning simulation
         GetListFromUser();
@@ -92,7 +93,9 @@ public class ListingActivity : Activity
         Console.WriteLine($"---{prompt}---");
         Console.WriteLine();
 
-        Console.WriteLine($"You may begin in: ShowCountdown(5)");
+        Console.WriteLine($"You may begin in: ");
+        ShowCountdown(5);
+
         Console.Write("> ");
 
         _responses = new List<string>();
