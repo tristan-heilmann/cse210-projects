@@ -1,10 +1,14 @@
+using Microsoft.VisualBasic;
+
 public class ChecklistGoal : Goal
 
 {
+    // member variables
     private int _amountCompleted;
     private int _target;
     private int _bonus;
 
+    // constructor
     public ChecklistGoal(string name, string description, int points)
         : base(name, description, points)
 
@@ -14,7 +18,8 @@ public class ChecklistGoal : Goal
         _bonus = 0;
     }
 
-    public override void RecordEvent()
+    // collecting info
+    public void CreateChecklistGoal()
     {
         Console.WriteLine("What is your goal named?");
         Console.Write("> ");
@@ -37,18 +42,33 @@ public class ChecklistGoal : Goal
         _bonus = int.Parse(Console.ReadLine());
     }
 
-    public override bool IsComplete()
+    public override void RecordEvent()
     {
         throw new NotImplementedException();
+    }
+
+    public override bool IsComplete()
+    {
+        return false;
     }
 
     public override string GetDetailsString()
     {
-        throw new NotImplementedException();
+        if (IsComplete() == false)
+
+        {
+            return $"[ ] {_shortName} ({_description}) - Currently completed: {_amountCompleted}/{_target}";
+        }
+
+        else
+
+        {
+            return $"[X] {_shortName} ({_description}) - Currently completed: {_amountCompleted}/{_target}";
+        }
     }
 
     public override string GetStringRepresentation()
     {
-        return $"[ ] {_shortName} ({_description}) - Currently completed: {_amountCompleted}/{_target}";
+        return $"Checklist Goal: -{_shortName} -{_description} -{_points} -{_points} -{_bonus} -    {_target} -{_amountCompleted}";
     }
 }

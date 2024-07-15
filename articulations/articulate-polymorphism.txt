@@ -1,0 +1,6 @@
+Polymorphism has three different definitions. The one that most accurately matches how it's used in programming is the first, which is as follows: "the condition of occurring in
+several different forms." In coding, it's quite similar. Polymorphism in programming is to take a method from a base class, drag it down into a derived class, and overrule
+whatever was originally stored in it. What this effectively does is it allows most derived classes to benefit from the default, while certain ones use a slightly different
+approach. Alternatively, the base method can be made abstract - aka empty - allowing each derived class to have their own version of this class without needing to make their own
+method entirely. An example of this in work would would be from my own code, where I have three methods that mark when a goal is completed, and despite technically being the same
+class they all do their jobs in different ways.

@@ -10,7 +10,7 @@ public class SimpleGoal : Goal
         _isComplete = false;
     }
 
-    public override void RecordEvent()
+    public void CreateSimpleGoal()
 
     {
         Console.WriteLine("What is your goal named?");
@@ -26,6 +26,12 @@ public class SimpleGoal : Goal
         _points = int.Parse(Console.ReadLine());
     }
 
+    public override void RecordEvent()
+
+    {
+        _isComplete = true;
+    }
+
     public override bool IsComplete()
 
     {
@@ -35,6 +41,6 @@ public class SimpleGoal : Goal
     public override string GetStringRepresentation()
 
     {
-        return $"[ ] {_shortName} ({_description})";
+        return $"Simple Goal:-{_shortName}-{_description}-{_points}-{IsComplete()}";
     }
 }

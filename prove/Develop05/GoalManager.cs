@@ -31,67 +31,73 @@ public class GoalManager
         int input = 0;
         string file = "";
 
-        // ya points
-        Console.WriteLine();
-        DisplayPlayerInfo();
-        Console.WriteLine();
-
-        // menu options
-        Console.WriteLine("Menu options:");
-
-        Console.WriteLine("    1. Create new goal");
-        Console.WriteLine("    2. List Goals");
-        Console.WriteLine("    3. Save goals");
-        Console.WriteLine("    4. Load goals");
-        Console.WriteLine("    5. Record Event");
-        Console.WriteLine("    6. Quit");
-
-        Console.WriteLine("Select a choice from the menu");
-        Console.Write("> ");
-        input = int.Parse(Console.ReadLine());
-
-        if (input == 1)
+        do
 
         {
-            CreateGoal();
-        }
 
-        else if (input == 2)
+            // ya points
+            Console.WriteLine();
+            DisplayPlayerInfo();
+            Console.WriteLine();
+    
+            // menu options
+            Console.WriteLine("Menu options:");
+    
+            Console.WriteLine("    1. Create new goal");
+            Console.WriteLine("    2. List Goals");
+            Console.WriteLine("    3. Save goals");
+            Console.WriteLine("    4. Load goals");
+            Console.WriteLine("    5. Record Event");
+            Console.WriteLine("    6. Quit");
+    
+            Console.WriteLine("Select a choice from the menu");
+            Console.Write("> ");
+            input = int.Parse(Console.ReadLine());
+    
+            if (input == 1)
+    
+            {
+                CreateGoal();
+            }
+    
+            else if (input == 2)
+    
+            {
+                
+            }
+    
+            else if (input == 3)
+    
+            {
+                Console.Write("What is the file name? ");
+                file = Console.ReadLine();
+    
+                SaveGoals(file);
+            }
+    
+            else if (input == 4)
+    
+            {
+                Console.Write("What is the file name? ");
+                file = Console.ReadLine();
+                
+                LoadGoals(file);
+            }
+    
+            else if (input == 5)
+    
+            {
+                RecordEvent();
+            }
+    
+            else
+    
+            {
+                Console.WriteLine("Farewell, friend.");
+                Environment.Exit(0);
+            }
 
-        {
-            
-        }
-
-        else if (input == 3)
-
-        {
-            Console.Write("What is the file name? ");
-            file = Console.ReadLine();
-
-            SaveGoals(file);
-        }
-
-        else if (input == 4)
-
-        {
-            Console.Write("What is the file name? ");
-            file = Console.ReadLine();
-            
-            LoadGoals(file);
-        }
-
-        else if (input == 5)
-
-        {
-            RecordEvent();
-        }
-
-        else
-
-        {
-            Console.WriteLine("Farewell, friend.");
-            Environment.Exit(0);
-        }
+        } while (input == 6);
     }
 
     public void DisplayPlayerInfo()
@@ -129,19 +135,19 @@ public class GoalManager
         if (goal == 1)
 
         {
-            simple.RecordEvent();
+            simple.CreateSimpleGoal();
         }
 
         else if (goal == 2)
 
         {
-            eternal.RecordEvent();
+            eternal.CreateEternalGoal();
         }
 
         else if (goal == 3)
 
         {
-            checklist.RecordEvent();
+            checklist.CreateChecklistGoal();
         }
     }
 
