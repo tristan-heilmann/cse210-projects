@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 using System.Security;
 using System.Security.AccessControl;
+using Microsoft.Win32;
 
 public class GoalManager
 
@@ -214,22 +215,26 @@ public class GoalManager
         Console.Write("> ");
         _completed = int.Parse(Console.ReadLine());
 
+        SimpleGoal simpleGoal = new SimpleGoal(_newName, _newDescription, _newPoints);
+        EternalGoal eternalGoal = new EternalGoal(_newName, _newDescription, _newPoints);
+        ChecklistGoal checklistGoal = new ChecklistGoal(_newName, _newDescription, _newPoints, _newTarget, _newBonus);
+
         if (_completed == 1)
 
         {
-            
+            simpleGoal.RecordEvent();
         }
 
         if (_completed == 2)
 
         {
-            
+            eternalGoal.RecordEvent();
         }
 
         if (_completed == 3)
 
         {
-            
+            checklistGoal.RecordEvent();
         }
     }
 
