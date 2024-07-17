@@ -9,42 +9,18 @@ public class ChecklistGoal : Goal
     private int _bonus;
 
     // constructor
-    public ChecklistGoal(string name, string description, int points)
+    public ChecklistGoal(string name, string description, int points, int target, int bonus)
         : base(name, description, points)
 
     {
         _amountCompleted = 0;
-        _target = 0;
-        _bonus = 0;
-    }
-
-    // collecting info
-    public void CreateChecklistGoal()
-    {
-        Console.WriteLine("What is your goal named?");
-        Console.Write("> ");
-        _shortName = Console.ReadLine();
-
-        Console.WriteLine("What is a short description of it?");
-        Console.Write("> ");
-        _description = Console.ReadLine();
-
-        Console.WriteLine("How many points would you like to associate with this goal?");
-        Console.Write("> ");
-        _points = int.Parse(Console.ReadLine());
-
-        Console.WriteLine("How many times does this goal have to be accomplished to get a bonus?");
-        Console.Write("> ");
-        _target = int.Parse(Console.ReadLine());
-
-        Console.WriteLine("What is the bonus for completing it that many times?");
-        Console.Write("> ");
-        _bonus = int.Parse(Console.ReadLine());
+        _target = target;
+        _bonus = bonus;
     }
 
     public override void RecordEvent()
     {
-        throw new NotImplementedException();
+        
     }
 
     public override bool IsComplete()
@@ -69,6 +45,6 @@ public class ChecklistGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return $"Checklist Goal: -{_shortName} -{_description} -{_points} -{_points} -{_bonus} -    {_target} -{_amountCompleted}";
+        return $"Checklist Goal: {_shortName}-{_description}-{_points}-{_bonus}-{_amountCompleted}-{_target}-{IsComplete()}";
     }
 }
