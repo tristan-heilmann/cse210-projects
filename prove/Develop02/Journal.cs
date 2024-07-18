@@ -18,7 +18,6 @@ public class Journal
 
         {
             entry.DisplayEntryDetails();
-            
         }
     }
 
