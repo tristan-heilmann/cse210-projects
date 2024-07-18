@@ -46,18 +46,48 @@ public class ListingActivity : Activity
         Console.WriteLine(defDescription);
         Console.WriteLine();
 
-        // setting a duration
-        Console.WriteLine("Please enter a duration (in seconds) for the activity.");
-        Console.Write("> ");
-        Console.ReadKey();
 
+        //UPDATE
+            // You need to ask for the duration first 
+        Console.WriteLine("Please enter a duration (in seconds) for the activity.");
         int dur = int.Parse(Console.ReadLine());
-        
+   
+            // PROMPT
+            var prompt = GetRandomPrompt();
+        Console.WriteLine("List as many responses as you can to the following prompt:");
+        Console.WriteLine();
+
+        Console.WriteLine($"---{prompt}---");
+        Console.WriteLine();
+
+        Console.WriteLine($"You may begin in: ");
+        ShowCountdown(5);
+   
+            // then LOOP HERE for the startTime and futureTime
         DateTime currentTime = DateTime.Now;
         DateTime futureTime = currentTime.AddSeconds(dur);
 
-        // beginning simulation
-        GetListFromUser();
+        _responses = new List<string>();
+                
+   // this will keep loading everytime you enter, no need for the ReadLine() because is automatic
+        do
+
+        {
+            Console.Write("> ");
+            // user input
+            string _userResponse = Console.ReadLine();
+
+            if(!string.IsNullOrEmpty(_userResponse))
+
+            {
+                _responses.Add(_userResponse);
+            }
+
+            currentTime = DateTime.Now;
+
+        } while (currentTime < futureTime);
+
+        Console.WriteLine($"You listed {_responses.Count()} items!");
 
         // ending simulation 
         Console.WriteLine();
@@ -66,7 +96,7 @@ public class ListingActivity : Activity
         ShowSpinner(5);
 
         Console.Clear();
-    }
+    }   
 
     // third time's the charm! (ok no more gambling jokes)
     public string GetRandomPrompt()
@@ -79,34 +109,6 @@ public class ListingActivity : Activity
         string prompt = _prompts[index];
 
         return prompt;
-    }
-
-    // technically this is the real Run
-    public List<string> GetListFromUser()
-
-    {
-        var prompt = GetRandomPrompt();
-
-        Console.WriteLine("List as many responses as you can to the following prompt:");
-        Console.WriteLine();
-
-        Console.WriteLine($"---{prompt}---");
-        Console.WriteLine();
-
-        Console.WriteLine($"You may begin in: ");
-        ShowCountdown(5);
-
-        Console.Write("> ");
-
-        _responses = new List<string>();
-
-        string _userResponse = Console.ReadLine();
-
-        _responses.Add(_userResponse);
-
-        Console.WriteLine($"You listed {_responses.Count()} items!");
-        
-        return _responses;
     }
 
     // oh boy another list
