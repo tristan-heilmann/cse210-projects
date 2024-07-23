@@ -1,0 +1,28 @@
+Abstraction means to "trim the fat" of your code, which can be anything from removing redundancies to merging functions that do similar things. It's all about keeping the code clean
+and straightforward.
+Encapsulation means to make certain variables and methods private, hiding them from other files. This allows for much more streamlined debugging because if a private variable breaks,
+the only things that need to be checked are the methods that have access to it, narrowing down the search considerably and making things a lot easier.
+Inheritence means to have a single "parent class", and multiple "child" classes that are directly connected to it in such a way that they're able to draw from it as though the code
+it contains is in their own files.
+Polymorphism is an expantion of Inheritence, and allows functions to be overridden. What this effectively does is it allows some files to use the default functions, while others have
+their own version of those same functions.
+
+For the examples, I don't know how to put images in text files, so instead I will be describing what I did for the first two and what I plan to do for the second two, as I've just
+started the third Foundation and haven't even touched the forth yet. I hope that is sufficient. If it's not, please tell me.
+
+For the first Foundation, what I did is I created the initial program, then went through the Comment and Video classes and streamlined them as much as I could to the point they are
+now, which is both need only a single function to work perfectly.
+For the second Foundation, what I did is I simply made all member variables private, and created public getters and setters to allow other files to gain access if needed.
+For the third Foundation, what I inted to do is have a singular parent class that houses all the variables and methods that the three files need so that I won't have to make the same
+things three different times.
+And finally for the fourth Foundation, what I intend to do is similar to the third, but I will also be using overrides for some of the methods, and will likely also have at least one
+abstract method.
+
+The first Foundation is flexible in the sense that everything is so heavily streamlined, even more so than the other functions, that changing the outputs of the files is incredibly
+easy and simple.
+The second Foundation is flexible in the sense that since the variables are kept private, if they are changed only the methods explicitly given access will have to be updated,
+reducing debug time and making everything much cleaner.
+The third Foundation is flexible in the sense that the base methods and variables are accessable by all of the child classes, so that if they need to be changed only the base class
+needs updating, rather than having to do the same updates multiple times so that each file is up to speed.
+And the fourth Foundation is flexible in the sense that files that need the default can use the default without issue, but those who need something different can override and tailor
+the code to their specific needs, while leaving other files untouched.
