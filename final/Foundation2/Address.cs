@@ -4,16 +4,16 @@ public class Address
     // member variables
     private string _streetAddress;
     private string _city;
-    private string _stateOrProvince;
+    private string _state;
     private string _country;
 
     // constructor
-    public Address(string streetAddress, string city, string stateOrProvince, string country)
+    public Address(string streetAddress, string city, string state, string country)
 
     {
         _streetAddress = streetAddress;
         _city = city;
-        _stateOrProvince = stateOrProvince;
+        _state = state;
         _country = country;
     }
 
@@ -32,10 +32,10 @@ public class Address
     }
 
     // state/province getter
-    public string GetStateOrProvince()
+    public string GetState()
 
     {
-        return _stateOrProvince;
+        return _state;
     }
 
     // country getter
@@ -45,11 +45,11 @@ public class Address
         return _country;
     }
 
-    // this connects to Order and depending on your answer chooses your shipping cost
-    public bool IsCustomerLocationUS(string country)
+    // this connects to Order and sets the shipping cost
+    public bool IsCustomerInUS()
 
     {
-        if (country.ToLower() == "us")
+        if (_country.ToLower() == "usa")
 
         {
             return true;
@@ -66,8 +66,6 @@ public class Address
     public string DisplayAddressDetails()
 
     {
-        string _addressInfo = $"{_streetAddress}\n{_city}, {_stateOrProvince}\n{_country}";
-
-        return _addressInfo;
+        return $"{_streetAddress}\n{_city}, {_state}\n{_country}";
     }
 }

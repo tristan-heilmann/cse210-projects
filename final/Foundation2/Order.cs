@@ -5,43 +5,35 @@ public class Order
 {
     // member variables
     private List<Product> products;
-    private  List<Customer> customers;
+    Customer customer;
     private float _totalCost;
     private int _shippingCost;
-    private int _isUS;
-    private int _isNotUS;
 
     // constructor
     public Order()
 
     {
         products = new List<Product>();
-        customers = new List<Customer>();
-
-        _isUS = 5;
-        _isNotUS = 35;
     }
 
-    public void GetPackingLabel()
+    public void PackingLabel()
 
     {
-        Console.WriteLine("Packing label:");
-
         foreach (Product product in products)
 
         {
+            Console.WriteLine("Packing label:");
+
             Console.WriteLine($"Item name and ID: {product.GetProductName} - {product.GetProductID}");
         }
     }
 
-    public void GetShippingLabel()
+    public void ShippingLabel()
 
     {
-        foreach (Customer customer in customers)
+        Console.WriteLine("Shipping lable:");
 
-        {
-            
-        }
+        
     }
 
     public float CalulateTotalCost()
@@ -53,7 +45,7 @@ public class Order
             _totalCost += product.CalculateFullProductPrice();
         }
 
-        return _totalCost + GetShippingCost();
+        return _totalCost + _shippingCost;
     }
 
     public float GetTotalCost()
@@ -62,9 +54,9 @@ public class Order
         return _totalCost;
     }
 
-    public int GetShippingCost()
+    public void GetShippingCost()
 
     {
-        return _shippingCost;
+        Double _shippingCost = customer.CustomerLocation() ? 5 : 35;
     }
 }
