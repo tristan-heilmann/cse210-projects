@@ -1,13 +1,16 @@
 public class Event
 
 {
+    // member variables
     protected string _eventTitle;
     protected string _description;
-    protected int _date;
-    protected int _time;
-    protected Address _address;
+    protected string _date;
+    protected string _time;
+    protected string _address;
+    protected string _eventType;
 
-    public Event(string title, string description, int date, int time, Address address)
+    // constructor
+    public Event(string title, string description, string date, string time, string address, string eventType)
 
     {
         _eventTitle = title;
@@ -15,7 +18,38 @@ public class Event
         _date = date;
         _time = time;
         _address = address;
+        _eventType = eventType;
     }
 
-    
+    // standard event details template
+    public void StandardDetails()
+
+    {
+        Console.WriteLine($"Event title: {_eventTitle}");
+        Console.WriteLine($"Event description: {_description}");
+        Console.WriteLine($"Event date: {_date}");
+        Console.WriteLine($"Event time: {_time}");
+        Console.WriteLine($"Event address: {_address}");
+    }
+
+    // full event details template
+    public void FullDetails()
+
+    {
+        Console.WriteLine($"Event type: {_eventType}");
+        Console.WriteLine($"Event title: {_eventTitle}");
+        Console.WriteLine($"Event description: {_description}");
+        Console.WriteLine($"Event date: {_date}");
+        Console.WriteLine($"Event time: {_time}");
+        Console.WriteLine($"Event address: {_address}");
+    }
+
+    // quick description template
+    public void ShortDescription()
+
+    {
+        Console.WriteLine($"Event type: {_eventType}");
+        Console.WriteLine($"Event title: {_eventTitle}");
+        Console.WriteLine($"Event date: {_date}");
+    }
 }
