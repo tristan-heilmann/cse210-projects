@@ -10,7 +10,7 @@ public class Order
     private int _shippingCost;
 
     // constructor
-    public Order()
+    public Order(Customer customer)
 
     {
         products = new List<Product>();
