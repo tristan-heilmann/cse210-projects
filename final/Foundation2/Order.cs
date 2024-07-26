@@ -33,7 +33,7 @@ public class Order
     {
         Console.WriteLine("Shipping lable:");
 
-        
+        Console.WriteLine($"Customer name and address: {customer.GetCustomerName} - {customer.GetCustomerAddress()}");
     }
 
     public float CalulateTotalCost()
@@ -57,6 +57,6 @@ public class Order
     public void GetShippingCost()
 
     {
-        Double _shippingCost = customer.CustomerLocation() ? 5 : 35;
+        Double _shippingCost = customer.IsCustomerInUS() ? 5 : 35;
     }
 }

@@ -13,7 +13,7 @@ public class Customer
         _customerAddress = address;
     }
 
-    public bool CustomerLocation()
+    public bool IsCustomerInUS()
 
     {
         return _customerAddress.IsCustomerInUS();
